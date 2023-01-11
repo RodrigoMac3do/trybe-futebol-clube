@@ -16,4 +16,16 @@ export default class LoginController {
 
     return res.status(200).json({ token });
   };
+
+  validate = async (req: Request, res: Response) => {
+    const { authorization } = req.headers;
+
+    if (!authorization) {
+      return res.sendStatus(401);
+    }
+
+    const role = await this.service.validate(authorization);
+
+    return res.status(200).json({ role });
+  };
 }
