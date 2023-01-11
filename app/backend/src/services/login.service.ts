@@ -1,11 +1,11 @@
 import { compareSync } from 'bcryptjs';
-import CreateToken from '../utils/jwt.util';
 import HttpException from '../utils/http.exception';
 import User from '../database/models/UsersModel';
 import ILogin from '../interfaces';
+import JWT from '../utils/jwt.util';
 
 export default class LoginService {
-  private token = new CreateToken();
+  private token = new JWT();
 
   signIn = async (body: ILogin) => {
     const { email, password } = body;
@@ -21,5 +21,15 @@ export default class LoginService {
     const { password: _, ...userWithoutPassword } = user.dataValues;
 
     return this.token.createToken(userWithoutPassword);
+  };
+
+  validate = async (token: string) => {
+    const { email, role } = this.token.decoderToken(token);
+
+    const user = await User.findOne({ where: { email } });
+
+    if (!user) return null;
+
+    return role;
   };
 }
