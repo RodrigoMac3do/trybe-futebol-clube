@@ -1,7 +1,7 @@
 import { compareSync } from 'bcryptjs';
 import HttpException from '../utils/http.exception';
 import User from '../database/models/UsersModel';
-import ILogin from '../interfaces';
+import { ILogin } from '../interfaces';
 import JWT from '../utils/jwt.util';
 
 export default class LoginService {
@@ -24,12 +24,15 @@ export default class LoginService {
   };
 
   validate = async (token: string) => {
-    const { email, role } = this.token.decoderToken(token);
+    try {
+      const { email, role } = this.token.decoderToken(token);
+      const user = await User.findOne({ where: { email } });
 
-    const user = await User.findOne({ where: { email } });
+      if (!user) return null;
 
-    if (!user) return null;
-
-    return role;
+      return role;
+    } catch (error) {
+      throw new HttpException(401, 'Token must be a valid token');
+    }
   };
 }
