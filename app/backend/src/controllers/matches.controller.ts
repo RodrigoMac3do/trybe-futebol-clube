@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request, Response, RequestHandler } from 'express';
 import { matchesSchema } from '../services/validations/schema';
 import validateSchema from '../services/validations/validationSchema';
 import { LoginService, MatchesService } from '../services';
@@ -51,5 +51,14 @@ export default class MatchesController {
     await this.matchesService.update(+id);
 
     return res.status(200).json({ message: 'Finished' });
+  };
+
+  updateGoals: RequestHandler = async (req, res) => {
+    const { id } = req.params;
+    const { body } = req;
+
+    await this.matchesService.updateGoals(+id, body);
+
+    return res.status(200).json({ message: 'Match is updated!' });
   };
 }
