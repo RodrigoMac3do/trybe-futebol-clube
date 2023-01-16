@@ -24,4 +24,10 @@ export default class MatchesService {
 
     return matches;
   };
+
+  create = async (match: object) => {
+    const statusMatches = Matches.create({ ...match, inProgress: true });
+
+    return statusMatches;
+  };
 }
