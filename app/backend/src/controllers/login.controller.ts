@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
+import HttpException from '../utils/http.exception';
+import { ILogin } from '../interfaces/index';
 import { LoginService } from '../services/index';
-import ILogin from '../interfaces';
 import { loginSchema } from '../services/validations/schema';
 import validateSchema from '../services/validations/validationSchema';
 
@@ -21,7 +22,7 @@ export default class LoginController {
     const { authorization } = req.headers;
 
     if (!authorization) {
-      return res.sendStatus(401);
+      throw new HttpException(401, 'Unauthorized');
     }
 
     const role = await this.service.validate(authorization);
