@@ -26,8 +26,12 @@ export default class MatchesService {
   };
 
   create = async (match: object) => {
-    const statusMatches = Matches.create({ ...match, inProgress: true });
+    const statusMatches = await Matches.create({ ...match, inProgress: true });
 
     return statusMatches;
+  };
+
+  update = async (id: number) => {
+    await Matches.update({ inProgress: false }, { where: { id } });
   };
 }
