@@ -35,6 +35,14 @@ export default class MatchesService {
       );
     }
 
+    const awayTeam = await Matches.findByPk(match.awayTeam);
+
+    const homeTeam = await Matches.findByPk(match.homeTeam);
+
+    if (!awayTeam || !homeTeam) {
+      throw new HttpException(404, 'There is no team with such id!');
+    }
+
     const statusMatches = await Matches.create({ ...match, inProgress: true });
 
     return statusMatches;
