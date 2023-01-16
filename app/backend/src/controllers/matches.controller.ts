@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { matchesSchema } from '../services/validations/schema';
 import validateSchema from '../services/validations/validationSchema';
 import { LoginService, MatchesService } from '../services';
+import HttpException from '../utils/http.exception';
 
 export default class MatchesController {
   public matchesService = new MatchesService();
@@ -32,7 +33,7 @@ export default class MatchesController {
     const { authorization } = req.headers;
 
     if (!authorization) {
-      return res.sendStatus(401);
+      throw new HttpException(401, 'Unauthorized');
     }
 
     await this.loginService.validate(authorization);
