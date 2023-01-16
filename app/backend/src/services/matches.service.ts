@@ -1,7 +1,7 @@
 import HttpException from '../utils/http.exception';
 import Teams from '../database/models/TeamsModel';
 import Matches from '../database/models/MatchesModel';
-import { IMatch } from '../interfaces';
+import { IMatch, IMatchGoals } from '../interfaces';
 
 export default class MatchesService {
   findAll = async () => {
@@ -50,5 +50,15 @@ export default class MatchesService {
 
   update = async (id: number) => {
     await Matches.update({ inProgress: false }, { where: { id } });
+  };
+
+  updateGoals = async (id: number, body: IMatchGoals) => {
+    await Matches.update(
+      {
+        homeTeamGoals: body.homeTeamGoals,
+        awayTeamGoals: body.awayTeamGoals,
+      },
+      { where: { id } },
+    );
   };
 }
