@@ -1,3 +1,4 @@
-import { ILogin } from './ILogin';
+import ILogin from './ILogin';
+import IMatch from './IMatch';
 
-export default ILogin;
+export { ILogin, IMatch };
