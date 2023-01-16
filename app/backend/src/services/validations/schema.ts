@@ -10,4 +10,11 @@ const loginSchema: Joi.Schema = Joi.object({
   password: Joi.string().min(6).required().messages(campos),
 });
 
-export default loginSchema;
+const matchesSchema: Joi.Schema = Joi.object({
+  homeTeam: Joi.number().integer().required(),
+  awayTeam: Joi.number().integer().required(),
+  homeTeamGoals: Joi.number().integer().required(),
+  awayTeamGoals: Joi.number().integer().required(),
+});
+
+export { loginSchema, matchesSchema };
