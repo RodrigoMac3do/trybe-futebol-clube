@@ -1,5 +1,7 @@
+import HttpException from '../utils/http.exception';
 import Teams from '../database/models/TeamsModel';
 import Matches from '../database/models/MatchesModel';
+import { IMatch } from '../interfaces';
 
 export default class MatchesService {
   findAll = async () => {
@@ -25,7 +27,14 @@ export default class MatchesService {
     return matches;
   };
 
-  create = async (match: object) => {
+  create = async (match: IMatch) => {
+    if (match.awayTeam === match.homeTeam) {
+      throw new HttpException(
+        422,
+        'It is not possible to create a match with two equal teams',
+      );
+    }
+
     const statusMatches = await Matches.create({ ...match, inProgress: true });
 
     return statusMatches;
