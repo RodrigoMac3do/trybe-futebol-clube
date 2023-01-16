@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { LoginService } from '../services/index';
 import ILogin from '../interfaces';
-import loginSchema from '../services/validations/schema';
+import { loginSchema } from '../services/validations/schema';
 import validateSchema from '../services/validations/validationSchema';
 
 export default class LoginController {
