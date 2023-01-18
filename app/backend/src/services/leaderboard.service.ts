@@ -6,7 +6,7 @@ import Leaderboard from '../utils/leaderboard.rules';
 export default class LeaderboardService {
   public matchesService = new MatchesService();
   public teamsService = new TeamsService();
-  public leaderboard = new Leaderboard();
+  public leaderboardUtils = new Leaderboard();
   private classTeam: IClassTeam = {
     name: '',
     efficiency: '',
@@ -32,6 +32,18 @@ export default class LeaderboardService {
       return 1;
     });
 
+  leaderboard = async () => {
+    const home = await this.leaderboardHome();
+    const away = await this.leaderboardAway();
+
+    if (home && away) {
+      const matches = [...away, ...home];
+      const newBoard = this.leaderboardUtils.leaderboard(matches);
+
+      return LeaderboardService.sortBoard(newBoard);
+    }
+  };
+
   leaderboardHome = async () => {
     const teams = await this.teamsService.findAll();
 
@@ -40,7 +52,7 @@ export default class LeaderboardService {
     if (teams && matches) {
       const result = await Promise.all(
         teams.map((team) =>
-          this.leaderboard.leaderboardHome(this.classTeam, team, matches)),
+          this.leaderboardUtils.leaderboardHome(this.classTeam, team, matches)),
       );
       return LeaderboardService.sortBoard(result);
     }
@@ -54,7 +66,7 @@ export default class LeaderboardService {
     if (teams && matches) {
       const result = await Promise.all(
         teams.map((team) =>
-          this.leaderboard.leaderboardAway(this.classTeam, team, matches)),
+          this.leaderboardUtils.leaderboardAway(this.classTeam, team, matches)),
       );
       return LeaderboardService.sortBoard(result);
     }
