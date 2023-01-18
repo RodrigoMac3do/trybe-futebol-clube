@@ -4,6 +4,12 @@ import { LeaderboardService } from '../services';
 export default class LeaderboardController {
   public service = new LeaderboardService();
 
+  leaderboard: RequestHandler = async (_req, res) => {
+    const leaderboard = await this.service.leaderboard();
+
+    return res.status(200).json(leaderboard);
+  };
+
   leaderboardHome: RequestHandler = async (_req, res) => {
     const leaderboardHome = await this.service.leaderboardHome();
 
