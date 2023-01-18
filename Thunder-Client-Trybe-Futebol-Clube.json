@@ -1,0 +1,269 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "Trybe Futebol Clube",
+  "dateExported": "2023-01-18T14:39:44.774Z",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "4e0d4c71-a23f-4633-a7a7-3415d89ce40a",
+      "colId": "23b205c3-4f82-4fa9-942e-6cf798986c57",
+      "containerId": "",
+      "name": "Verifica se é possivel fazer login",
+      "url": "http://localhost:3001/login",
+      "method": "POST",
+      "sortNum": 11875,
+      "created": "2023-01-09T00:51:26.576Z",
+      "modified": "2023-01-16T13:52:00.453Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "  {\n    \"email\": \"admin@admin.com\",\n    \"password\": \"secret_admin\"\n  }",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "7310648c-ad0c-4abe-aa6f-684827738cff",
+      "colId": "23b205c3-4f82-4fa9-942e-6cf798986c57",
+      "containerId": "",
+      "name": "Traz o tipo de pessoa logada",
+      "url": "http://localhost:3001/login/validate",
+      "method": "GET",
+      "sortNum": 17500,
+      "created": "2023-01-11T12:48:48.488Z",
+      "modified": "2023-01-11T13:03:02.765Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJBZG1pbiIsInJvbGUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjczMzk3NTc3LCJleHAiOjE2NzM0MjYzNzd9.-8XjtNIVcFo5fE46cImisz0I2gC3fW3lotsqfvjuuV8"
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "dc6fafbc-6b63-4860-9121-7b8f27b99c0f",
+      "colId": "23b205c3-4f82-4fa9-942e-6cf798986c57",
+      "containerId": "",
+      "name": "Faz listagem de todos os times",
+      "url": "http://localhost:3001/teams",
+      "method": "GET",
+      "sortNum": 25000,
+      "created": "2023-01-10T03:45:28.408Z",
+      "modified": "2023-01-18T14:26:43.899Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "9a062311-bb4d-4ca6-80d7-c927ca5667f4",
+      "colId": "23b205c3-4f82-4fa9-942e-6cf798986c57",
+      "containerId": "",
+      "name": "Faz listagem de time por ID",
+      "url": "http://localhost:3001/teams/10",
+      "method": "GET",
+      "sortNum": 40000,
+      "created": "2023-01-11T13:02:00.966Z",
+      "modified": "2023-01-18T14:26:48.895Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "0778637d-5110-458d-969c-edd2b39e7403",
+      "colId": "23b205c3-4f82-4fa9-942e-6cf798986c57",
+      "containerId": "",
+      "name": "Faz listagem de todas as partidas",
+      "url": "http://localhost:3001/matches",
+      "method": "GET",
+      "sortNum": 50000,
+      "created": "2023-01-11T13:21:45.530Z",
+      "modified": "2023-01-18T14:26:54.343Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "c3f894c8-68ba-4965-8b4a-175e7adc9a50",
+      "colId": "23b205c3-4f82-4fa9-942e-6cf798986c57",
+      "containerId": "",
+      "name": "Faz listagem de todas as partidas terminadas",
+      "url": "http://localhost:3001/matches?inProgress=false",
+      "method": "GET",
+      "sortNum": 60000,
+      "created": "2023-01-11T17:34:22.411Z",
+      "modified": "2023-01-18T14:27:52.501Z",
+      "headers": [],
+      "params": [
+        {
+          "name": "inProgress",
+          "value": "false",
+          "isPath": false
+        }
+      ],
+      "tests": []
+    },
+    {
+      "_id": "32b16597-3112-4732-818e-ffe408abc909",
+      "colId": "23b205c3-4f82-4fa9-942e-6cf798986c57",
+      "containerId": "",
+      "name": "Faz listagem de todas as partidas em andamento",
+      "url": "http://localhost:3001/matches?inProgress=false",
+      "method": "GET",
+      "sortNum": 65000,
+      "created": "2023-01-18T14:26:36.796Z",
+      "modified": "2023-01-18T14:26:36.796Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJBZG1pbiIsInJvbGUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjczMzk3NTc3LCJleHAiOjE2NzM0MjYzNzd9.-8XjtNIVcFo5fE46cImisz0I2gC3fW3lotsqfvjuuV8",
+          "isDisabled": true
+        }
+      ],
+      "params": [
+        {
+          "name": "inProgress",
+          "value": "false",
+          "isPath": false
+        }
+      ],
+      "tests": []
+    },
+    {
+      "_id": "0fd30df4-693f-4e20-87b8-5f4b34776950",
+      "colId": "23b205c3-4f82-4fa9-942e-6cf798986c57",
+      "containerId": "",
+      "name": "Cria uma nova partida com \"inProgress: true\"",
+      "url": "http://localhost:3001/matches",
+      "method": "POST",
+      "sortNum": 70000,
+      "created": "2023-01-16T13:51:44.752Z",
+      "modified": "2023-01-18T14:28:08.172Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJBZG1pbiIsInJvbGUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjczMzk3NTc3LCJleHAiOjE2NzM0MjYzNzd9.-8XjtNIVcFo5fE46cImisz0I2gC3fW3lotsqfvjuuV8"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"homeTeam\": 1,\n  \"awayTeam\": 8,\n  \"homeTeamGoals\": 2,\n  \"awayTeamGoals\": 2\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "6edc14be-f730-4417-81a7-6c9b6864488f",
+      "colId": "23b205c3-4f82-4fa9-942e-6cf798986c57",
+      "containerId": "",
+      "name": "Atualiza o placar da partida",
+      "url": "http://localhost:3001/matches/22",
+      "method": "PATCH",
+      "sortNum": 75000,
+      "created": "2023-01-16T17:31:47.432Z",
+      "modified": "2023-01-18T14:34:16.303Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJBZG1pbiIsInJvbGUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjczMzk3NTc3LCJleHAiOjE2NzM0MjYzNzd9.-8XjtNIVcFo5fE46cImisz0I2gC3fW3lotsqfvjuuV8",
+          "isDisabled": true
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"homeTeam\": 1,\n  \"awayTeam\": 8,\n  \"homeTeamGoals\": 2,\n  \"awayTeamGoals\": 2\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "1d6a1a6c-c3f0-4c99-b13d-266aa6789e10",
+      "colId": "23b205c3-4f82-4fa9-942e-6cf798986c57",
+      "containerId": "",
+      "name": "Atualiza o progresso da partida, \"inPorgress: false\"",
+      "url": "http://localhost:3001/matches/22/finish",
+      "method": "PATCH",
+      "sortNum": 80000,
+      "created": "2023-01-16T16:03:29.106Z",
+      "modified": "2023-01-18T14:33:43.965Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJBZG1pbiIsInJvbGUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjczMzk3NTc3LCJleHAiOjE2NzM0MjYzNzd9.-8XjtNIVcFo5fE46cImisz0I2gC3fW3lotsqfvjuuV8",
+          "isDisabled": true
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"homeTeam\": 1,\n  \"awayTeam\": 8,\n  \"homeTeamGoals\": 2,\n  \"awayTeamGoals\": 2\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "fa8f6611-c1fa-4a89-ac68-bce8353efb65",
+      "colId": "23b205c3-4f82-4fa9-942e-6cf798986c57",
+      "containerId": "",
+      "name": "Traz as classificações dos times da casa",
+      "url": "http://localhost:3001/leaderboard/home",
+      "method": "GET",
+      "sortNum": 100000,
+      "created": "2023-01-17T18:18:21.635Z",
+      "modified": "2023-01-18T13:40:14.824Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJBZG1pbiIsInJvbGUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjczMzk3NTc3LCJleHAiOjE2NzM0MjYzNzd9.-8XjtNIVcFo5fE46cImisz0I2gC3fW3lotsqfvjuuV8",
+          "isDisabled": true
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "98ffc6c7-c594-482c-b8e0-e8ce8433d73d",
+      "colId": "23b205c3-4f82-4fa9-942e-6cf798986c57",
+      "containerId": "",
+      "name": "Traz as classificações dos times visitantes",
+      "url": "http://localhost:3001/leaderboard/away",
+      "method": "GET",
+      "sortNum": 110000,
+      "created": "2023-01-18T13:42:49.381Z",
+      "modified": "2023-01-18T13:42:56.627Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJBZG1pbiIsInJvbGUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjczMzk3NTc3LCJleHAiOjE2NzM0MjYzNzd9.-8XjtNIVcFo5fE46cImisz0I2gC3fW3lotsqfvjuuV8",
+          "isDisabled": true
+        }
+      ],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "1ed4fa56-8179-4acc-a8ea-4c55717b1ecf",
+      "colId": "23b205c3-4f82-4fa9-942e-6cf798986c57",
+      "containerId": "",
+      "name": "Traz as classificações dos times",
+      "url": "http://localhost:3001/leaderboard/",
+      "method": "GET",
+      "sortNum": 120000,
+      "created": "2023-01-18T13:43:00.065Z",
+      "modified": "2023-01-18T13:43:27.760Z",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJBZG1pbiIsInJvbGUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjczMzk3NTc3LCJleHAiOjE2NzM0MjYzNzd9.-8XjtNIVcFo5fE46cImisz0I2gC3fW3lotsqfvjuuV8",
+          "isDisabled": true
+        }
+      ],
+      "params": [],
+      "tests": []
+    }
+  ]
+}
