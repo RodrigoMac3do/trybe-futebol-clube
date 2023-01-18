@@ -1,6 +1,29 @@
 import { IClassTeam, IMatchIDP, ITeam } from '../interfaces';
 
 export default class Leaderboard {
+  leaderboard = (matches: IClassTeam[]) => {
+    const points = matches.reduce((acc, cur) => {
+      const found = acc.find((elem) => elem.name === cur.name);
+
+      if (found) {
+        found.totalPoints += cur.totalPoints;
+        found.totalGames += cur.totalGames;
+        found.totalVictories += cur.totalVictories;
+        found.totalDraws += cur.totalDraws;
+        found.totalLosses += cur.totalLosses;
+        found.goalsFavor += cur.goalsFavor;
+        found.goalsOwn += cur.goalsOwn;
+        found.goalsBalance += cur.goalsBalance;
+        found.efficiency = ((found.totalPoints / (found.totalGames * 3)) * 100).toFixed(2);
+      } else {
+        acc.push(cur);
+      }
+      return acc;
+    }, [] as IClassTeam[]);
+
+    return points;
+  };
+
   leaderboardHome = (obj: IClassTeam, team:ITeam, matches: IMatchIDP[]) => {
     const list = { ...obj };
 
