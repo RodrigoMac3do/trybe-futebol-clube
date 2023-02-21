@@ -1,12 +1,7 @@
 import * as express from 'express';
 import 'express-async-errors';
-import httpErrorMiddleware from './middlewares';
-import {
-  loginRoute,
-  matchesRoute,
-  teamsRoute,
-  leaderboardRoute,
-} from './routes/index';
+import Routes from './routes/router';
+import HttpError from './middlewares';
 
 class App {
   public app: express.Express;
@@ -16,15 +11,9 @@ class App {
 
     this.config();
 
-    this.app.use('/login', loginRoute);
+    this.app.use(Routes);
 
-    this.app.use('/teams', teamsRoute);
-
-    this.app.use('/matches', matchesRoute);
-
-    this.app.use('/leaderboard', leaderboardRoute);
-
-    this.app.use(httpErrorMiddleware);
+    this.app.use(HttpError.handle);
 
     // Não remover essa rota
     this.app.get('/', (_req, res) => res.json({ ok: true }));
