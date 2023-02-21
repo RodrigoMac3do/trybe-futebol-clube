@@ -4,9 +4,9 @@ import TeamsService from './teams.service';
 import Leaderboard from '../utils/leaderboard.rules';
 
 export default class LeaderboardService {
-  public matchesService = new MatchesService();
-  public teamsService = new TeamsService();
-  public leaderboardUtils = new Leaderboard();
+  private matchesService = new MatchesService();
+  private teamsService = new TeamsService();
+  private leaderboardUtils = new Leaderboard();
   private classTeam: IClassTeam = {
     name: '',
     efficiency: '',

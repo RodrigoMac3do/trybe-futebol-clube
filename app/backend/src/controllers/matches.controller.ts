@@ -1,12 +1,13 @@
 import { Request, Response, RequestHandler } from 'express';
 import { matchesSchema } from '../services/validations/schema';
-import validateSchema from '../services/validations/validationSchema';
+import ValidateSchema from '../services/validations/validationSchema';
 import { LoginService, MatchesService } from '../services';
-import HttpException from '../utils/http.exception';
+import HttpException from '../utils/HttpException';
 
 export default class MatchesController {
-  public matchesService = new MatchesService();
-  public loginService = new LoginService();
+  private matchesService = new MatchesService();
+  private loginService = new LoginService();
+  private validateSchema = new ValidateSchema();
 
   findAll = async (req: Request, res: Response) => {
     const {
@@ -38,7 +39,7 @@ export default class MatchesController {
 
     await this.loginService.validate(authorization);
 
-    await validateSchema(matchesSchema, body);
+    await this.validateSchema.validate(matchesSchema, body);
 
     const statusMatches = await this.matchesService.create(body);
 

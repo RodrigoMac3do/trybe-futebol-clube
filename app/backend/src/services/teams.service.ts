@@ -1,4 +1,4 @@
-import HttpException from '../utils/http.exception';
+import HttpException from '../utils/HttpException';
 import Teams from '../database/models/TeamsModel';
 
 export default class TeamsService {

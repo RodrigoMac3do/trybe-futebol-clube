@@ -1,16 +1,17 @@
 import { compareSync } from 'bcryptjs';
-import HttpException from '../utils/http.exception';
+import HttpException from '../utils/HttpException';
 import User from '../database/models/UsersModel';
 import { ILogin } from '../interfaces';
 import JWT from '../utils/jwt.util';
 
 export default class LoginService {
   private token = new JWT();
+  private _model = User;
 
   signIn = async (body: ILogin) => {
     const { email, password } = body;
 
-    const user = await User.findOne({ where: { email } });
+    const user = await this._model.findOne({ where: { email } });
 
     if (!user) throw new HttpException(401, 'Incorrect email or password');
 

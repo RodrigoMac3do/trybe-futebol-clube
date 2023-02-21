@@ -1,17 +1,18 @@
 import { Request, Response } from 'express';
-import HttpException from '../utils/http.exception';
+import HttpException from '../utils/HttpException';
 import { ILogin } from '../interfaces/index';
 import { LoginService } from '../services/index';
 import { loginSchema } from '../services/validations/schema';
-import validateSchema from '../services/validations/validationSchema';
+import ValidateSchema from '../services/validations/validationSchema';
 
 export default class LoginController {
-  public service = new LoginService();
+  private service = new LoginService();
+  private validateSchema = new ValidateSchema();
 
   signIn = async (req: Request<object, object, ILogin>, res: Response) => {
     const { body } = req;
 
-    await validateSchema(loginSchema, body);
+    await this.validateSchema.validate(loginSchema, body);
 
     const token = await this.service.signIn(body);
 
