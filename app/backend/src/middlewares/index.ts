@@ -1,3 +1,3 @@
-import httpErrorMiddleware from './http.error.middleware';
+import HttpError from './HttpError.middleware';
 
-export default httpErrorMiddleware;
+export default HttpError;
