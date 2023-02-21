@@ -1,6 +1,6 @@
-import loginRoute from './login.route';
-import teamsRoute from './teams.route';
-import matchesRoute from './matches.route';
-import leaderboardRoute from './leaderboard.route';
+import login from './login.route';
+import teams from './teams.route';
+import matches from './matches.route';
+import leaderboard from './leaderboard.route';
 
-export { loginRoute, teamsRoute, matchesRoute, leaderboardRoute };
+export default { login, teams, matches, leaderboard };
