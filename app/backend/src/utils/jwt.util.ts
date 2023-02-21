@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
 import * as jwt from 'jsonwebtoken';
-import HttpException from './http.exception';
+import HttpException from './HttpException';
 
 dotenv.config();
 
