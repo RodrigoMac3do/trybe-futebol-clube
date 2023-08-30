@@ -2,7 +2,7 @@ import { Model, INTEGER, BOOLEAN } from 'sequelize';
 import db from '.';
 import Teams from './TeamsModel';
 
-class Matches extends Model {
+export default class Matches extends Model {
   declare id?: number;
   declare homeTeam: number;
   declare homeTeamGoals: number;
@@ -57,5 +57,3 @@ Teams.hasMany(Matches, { foreignKey: 'awayTeam', as: 'teamAway' });
 
 Matches.belongsTo(Teams, { foreignKey: 'homeTeam', as: 'teamHome' });
 Matches.belongsTo(Teams, { foreignKey: 'awayTeam', as: 'teamAway' });
-
-export default Matches;
