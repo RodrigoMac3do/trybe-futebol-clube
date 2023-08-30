@@ -3,7 +3,7 @@ import 'express-async-errors';
 import Routes from './routes/router';
 import HttpError from './middlewares';
 
-class App {
+export class App {
   public app: express.Express;
 
   constructor() {
@@ -39,4 +39,5 @@ class App {
   }
 }
 
-export default App;
+// Essa segunda exportação é estratégica, e a execução dos testes de cobertura depende dela
+export const { app } = new App();
